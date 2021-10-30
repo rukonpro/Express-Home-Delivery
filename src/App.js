@@ -1,23 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "tailwindcss/tailwind.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+
+} from "react-router-dom";
+import Navigation from './Components/Navigation/Navigation';
+import Home from './Pages/Home/Home';
+import Services from './Pages/Services/Services';
+
+import AuthProvider from './Components/Context/AuthProvider';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+import MyOrders from './Pages/MyOrders/MyOrders';
+import AllOrder from './Pages/Admin/AllOrder/AllOrder';
+import AddNewService from './Pages/Admin/AddNewSevice/AddNewService';
+
+import UpdateService from './Pages/Admin/UpdadeService/UpdateService';
+import LoginTogol from './Pages/Login/LoginTogol/LoginTogol';
+import Update from './Pages/Admin/UpdadeService/UpdateForEdit/Ubpdate';
+
+
+
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <Router>
+          <Navigation></Navigation>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route exact path="/home">
+              <Home></Home>
+            </Route>
+            <PrivateRoute exact path="/placeOrder/:id">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+            <Route exact path="/services">
+              <Services></Services>
+            </Route>
+            <PrivateRoute exact path="/myOrders">
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+            <PrivateRoute exact path="/AllOrder">
+              <AllOrder></AllOrder>
+            </PrivateRoute>
+            <PrivateRoute exact path="/AddNewService">
+              <AddNewService></AddNewService>
+            </PrivateRoute>
+
+            <PrivateRoute exact path='/testUseParams/:id'>
+              <Update></Update>
+            </PrivateRoute>
+            <PrivateRoute path="/update">
+              <UpdateService></UpdateService>
+            </PrivateRoute>
+            <Route path='/login'>
+              <LoginTogol></LoginTogol>
+            </Route>
+
+
+          </Switch>
+        </Router>
+      </AuthProvider>
+
     </div>
   );
 }

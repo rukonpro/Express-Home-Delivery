@@ -11,11 +11,11 @@ const Services = () => {
     }, [setServices])
 
     return (
-        <div>
+        <div className='container py-11'>
 
-            <div className='container'>
+            <div >
 
-                <h1 className=" text-center text-yellow-700 py-3 text-decoration-underline  fw-bold">Services</h1>
+                <h1 className=" text-center text-yellow-700 py-3 text-decoration-underline  fw-bold uppercase">Services</h1>
                 <div>
                     <div className=' text-center'>
                         <h5 className='text-pink-600'> Service Found:{services.length}</h5>

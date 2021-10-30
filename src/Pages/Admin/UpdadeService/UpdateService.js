@@ -25,7 +25,7 @@ const UpdateService = () => {
     }
 
     return (
-        <div className='container'>
+        <div className='container pb-11'>
             <h1 className='text-yellow-400 fw-bold underline text-center py-11'>All Update Services</h1>
             <div className='row g-3'>
                 {

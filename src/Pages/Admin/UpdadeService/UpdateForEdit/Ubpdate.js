@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-
+import './Update.css'
 
 const Update = () => {
     const { id } = useParams();
@@ -30,11 +30,15 @@ const Update = () => {
     }
 
     return (
-        <div>
-            <h1>text ues params</h1>
+        <div className=' h-screen update-form-bg'>
+            <h1 className='text-yellow-400  text-center fw-bold underline uppercase py-11'>Edit Service</h1>
+            <div className='col-lg-6'>
+                <div>
 
+                </div>
+            </div>
 
-            <div className='container-fluid p-0 '>
+            <div className='container-fluid p-0 col-lg-6 bg-white card card-body p-3 shadow-2xl'>
                 <form onSubmit={handleSubmit(update)}>
 
                     <input className="form-control rounded-pill " {...register('title', { required: true })} placeholder="Title" defaultValue={title} /> <br />
@@ -45,7 +49,7 @@ const Update = () => {
 
                     <input className="form-control rounded-pill" {...register('img', { required: true })} placeholder="Img URL" defaultValue={img} /> <br />
 
-                    <input className="form-control rounded-pill bg-success " type="submit" value='Update' />
+                    <input className="form-control rounded-pill  btn-warning shadow-xl " type="submit" value='Update' />
                 </form><br />
 
 

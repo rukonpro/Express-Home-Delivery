@@ -3,6 +3,7 @@ import useAuth from '../../Components/Hooks/useAuth';
 import MyOrder from './MyOrder';
 import axios from 'axios';
 import Spinner from '../../Components/Hooks/Spinner'
+import './MyOrder.css'
 const MyOrders = () => {
     const [myOrderService, setMyOrderService] = useState([]) || '';
     const { user } = useAuth();
@@ -15,21 +16,25 @@ const MyOrders = () => {
     // console.log(myOrderService)
 
     const handleDelete = (id) => {
-        axios.delete(`https://arcane-sierra-37156.herokuapp.com/deleteItem/${id}`)
 
-            .then(res => res.data.deletedCount &&
-                fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
-                    .then(res => res?.json())
-                    .then(data => setMyOrderService(data))
-            )
+
+        window.confirm("Are you sure you wish to delete this item?") &&
+            axios.delete(`https://arcane-sierra-37156.herokuapp.com/deleteItem/${id}`)
+
+                .then(res => res.data.deletedCount &&
+
+                    fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
+                        .then(res => res?.json())
+                        .then(data => setMyOrderService(data))
+                )
     }
 
 
     return (
-        <div>
+        <div className='my-order-bg pb-11'>
             <div className="container">
-                <header className="text-center  text-black">
-                    <h1 className="display-4 fw-bold text-yellow-400 underline"><span className='text-red-500'>MY</span> Add To Cart</h1>
+                <header className="text-center mt-11 text-black">
+                    <h1 className="display-4 py-11 fw-bold text-yellow-400 underline uppercase"><span className='text-red-500'>MY</span> Add To Cart</h1>
                     <div><h5>{myOrderService.length === 0 && Spinner}</h5></div>
                 </header>
                 <div className="row">

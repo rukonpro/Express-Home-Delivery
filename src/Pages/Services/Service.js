@@ -7,39 +7,38 @@ const Service = (props) => {
     const { img, title, price, description, _id } = props.service;
     AOS.init();
     return (
-        <div data-aos="zoom-out-right" data-aos-easing="ease-out-cubic" className='col-lg-3 col-md-6 col-sm-12'>
 
-            <Link to={`/placeOrder/${_id}`} className='text-decoration-none'>
-                <Card >
-                    <CardActionArea>
-                        <CardMedia className='overflow-hidden'
-                            component="img"
-                            height="140"
-                            image={img}
-                            alt="green iguana"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                                {title}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {description}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                ${price}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions className=' bg-yellow-400'>
 
-                        <Button size="large" color="primary">
-                            Order
-                        </Button>
+        <Link to={`/placeOrder/${_id}`} className='text-decoration-none col-lg-3 col-md-6 col-sm-12'>
+            <Card >
+                <CardActionArea>
+                    <CardMedia className='overflow-hidden'
+                        component="img"
+                        height="140"
+                        image={img}
+                        alt="green iguana"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {description.slice(0, 100)}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            ${price}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions className=' bg-yellow-400'>
 
-                    </CardActions>
-                </Card>
-            </Link>
-        </div>
+                    <Button size="large" color="primary">
+                        Order
+                    </Button>
+
+                </CardActions>
+            </Card>
+        </Link>
 
 
     );

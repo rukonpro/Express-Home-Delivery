@@ -9,7 +9,7 @@ const Navigation = () => {
         <div>
             <Navbar className=' bg-gray-700' expand="lg">
                 <Container >
-                    <Navbar.Brand as={HashLink} to="/"><img className='w-2/3' src="https://i.ibb.co/9h97tcf/logo-2x.png" alt="" /></Navbar.Brand>
+                    <Navbar.Brand as={HashLink} to="/"><img className='' width='200px' src="https://i.ibb.co/9h97tcf/logo-2x.png" alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav

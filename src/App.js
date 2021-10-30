@@ -23,7 +23,8 @@ import AddNewService from './Pages/Admin/AddNewSevice/AddNewService';
 import UpdateService from './Pages/Admin/UpdadeService/UpdateService';
 import LoginTogol from './Pages/Login/LoginTogol/LoginTogol';
 import Update from './Pages/Admin/UpdadeService/UpdateForEdit/Ubpdate';
-
+import Footer from './Components/Footer/Footer'
+import NoteFound from './Pages/NoteFound/NoteFound';
 
 
 
@@ -57,7 +58,6 @@ function App() {
             <PrivateRoute exact path="/AddNewService">
               <AddNewService></AddNewService>
             </PrivateRoute>
-
             <PrivateRoute exact path='/testUseParams/:id'>
               <Update></Update>
             </PrivateRoute>
@@ -67,10 +67,12 @@ function App() {
             <Route path='/login'>
               <LoginTogol></LoginTogol>
             </Route>
-
-
+            <Route exact path='*'>
+              <NoteFound></NoteFound>
+            </Route>
           </Switch>
         </Router>
+        <Footer></Footer>
       </AuthProvider>
 
     </div>

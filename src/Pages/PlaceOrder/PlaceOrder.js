@@ -5,7 +5,7 @@ import useAuth from '../../Components/Hooks/useAuth';
 import axios from 'axios';
 const PlaceOrder = () => {
     const [singleService, setSingleService] = useState({}) || '';
-
+    const [myOrderService, setMyOrderService] = useState([]) || '';
     const { id } = useParams();
     const { user } = useAuth()
 
@@ -15,14 +15,27 @@ const PlaceOrder = () => {
             .then(data => setSingleService(data))
     }, [id, setSingleService])
     // --------------------------------------------------------
+
+
+
+
+
+    useEffect(() => {
+        fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setMyOrderService(data))
+    }, [user.email, setMyOrderService])
+
+
+
+    //---------------------------------------------------------
     const { title, img, description, price } = singleService;
-
-
     const email = user?.email;
     const name = user?.displayName;
     const date = new Date();
     const pending = 'Pending';
-    const OrderData = { title, img, description, price, name, email, date, pending }
+    const colors = 'btn-warning';
+    const OrderData = { title, img, description, price, name, email, date, pending, colors }
 
 
 
@@ -31,13 +44,16 @@ const PlaceOrder = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Add to cart successfully')
+                    fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
+                        .then(res => res.json())
+                        .then(data => setMyOrderService(data))
                 }
             })
     }
 
     return (
         <div className='container'>
-            <h1 className='text-yellow-500 text-decoration-underline fw-bold text-center mt-11'>Please Add to card😋</h1>
+            <h1 className='text-yellow-500 text-decoration-underline fw-bold text-center mt-11'>Add to card😋{myOrderService.length}</h1>
 
             <div className='container-fluid p-0 '>
                 <div className='row d-flex justify-center items-center'>
@@ -49,7 +65,23 @@ const PlaceOrder = () => {
                         <p>{description}</p>
                         <h4>${price}</h4>
                         <button onClick={handleOrder} className='btn btn-warning'>Add to cart</button>
+
+
+                        <div className='col-sm-12 col-md-6 col-lg-6 py-5'>
+                            <hr />
+                            <img className='bg-green-400 py-1 px-14' src="https://i.ibb.co/9h97tcf/logo-2x.png" alt="" />
+                            <h3 className='text-blue-700 fw-bold'>  Food Delivery Express</h3>
+                            <h5 className=" text-pink-600">Mobile: 01785-5522 </h5>
+                            <h5 className=" text-green-600">Email:express.gmail.com</h5>
+                            <small className=" text-red-800">Email</small>
+                            <div className=" input-group bg-yellow-400 mt-2">
+
+                                <input type="email" className='form-control' placeholder='Email' />
+                                <button className="btn">Send</button>
+                            </div>
+                        </div>
                     </div>
+
 
                 </div>
 

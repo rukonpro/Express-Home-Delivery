@@ -2,7 +2,7 @@ import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const DeliverMan = () => {
+const DeliveryMan = () => {
     AOS.init();
     return (
         <div className='
@@ -60,4 +60,4 @@ const DeliverMan = () => {
     );
 };
 
-export default DeliverMan;
+export default DeliveryMan;

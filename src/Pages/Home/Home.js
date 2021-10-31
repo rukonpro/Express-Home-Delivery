@@ -1,5 +1,5 @@
 import React from 'react';
-import DeliverMan from '../../Components/DeliveryMan/DeliverMan';
+import DeliveryMan from '../../Components/DeliveryMan/DeliverMan';
 import Header from '../../Components/Header/Header';
 import Services from '../Services/Services';
 import OurTim from '../../Components/OurTim/OurTim';
@@ -13,8 +13,7 @@ const Home = () => {
 
             <Header></Header>
             <Services></Services>
-            <DeliverMan></DeliverMan>
-
+            <DeliveryMan></DeliveryMan>
             <HowItWork></HowItWork>
             <OurTim></OurTim>
 

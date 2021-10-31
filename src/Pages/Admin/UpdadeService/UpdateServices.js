@@ -1,32 +1,40 @@
-// import { CardActions, Typography, CardContent, CardMedia, CardActionArea } from '@mui/material';
-import React from 'react';
-// import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import UpdateService from './UpdateService';
 
-const UpdateServices = (props) => {
-    const { img, title, price, description, _id } = props?.serviceUpdate;
+const UpdateServices = () => {
+
+    const [servicesUpdate, setServicesUpdate] = useState([]) || '';
+    useEffect(() => {
+        fetch('https://arcane-sierra-37156.herokuapp.com/allServices')
+            .then(res => res.json())
+            .then(data => setServicesUpdate(data))
+    }, [setServicesUpdate])
+
+    const handleDelete = (id) => {
+        window.confirm("Are you sure you wish to delete this item?") &&
+            axios.delete(`https://arcane-sierra-37156.herokuapp.com/updateDelete/${id}`)
+                .then(res => {
+                    if (res.data.deletedCount) {
+                        fetch('https://arcane-sierra-37156.herokuapp.com/allServices')
+                            .then(res => res.json())
+                            .then(data => setServicesUpdate(data))
+                    }
+                })
+
+    }
+
     return (
+        <div className='container pb-11'>
+            <h1 className='text-yellow-400 fw-bold underline text-center py-11'>All Update Services</h1>
+            <div className='row row-cols-1 row-cols-md-4 g-4'>
+                {
+                    servicesUpdate?.map(serviceUpdate => <UpdateService key={serviceUpdate?._id} handleDelete={handleDelete} serviceUpdate={serviceUpdate}></UpdateService>)
+                }
 
-        // <div className='col-lg-3 col-md-6 col-sm-12'>
-        <div class="col">
-            <div class="card h-100">
-                <img src={img} class="card-img-top" alt="food" />
-                <div class="card-body">
-                    <h5 class="card-title text-danger">{title.slice(0, 25)}</h5>
-                    <p class="card-text">{description.slice(0, 100)}...</p>
-                    <h4 class="card-text">${price}</h4>
-                </div>
-                <div class="card-footer flex justify-between">
 
-                    <Link to={`/testUseParams/${_id}`} >
-                        <button className='btn btn-warning'>Update</button>
-                    </Link>
-                    <button onClick={() => props?.handleDelete(_id)} className='btn btn-danger'>Delete</button>
-                </div>
             </div>
         </div>
-        // </div>
-
     );
 };
 

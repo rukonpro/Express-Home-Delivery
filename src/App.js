@@ -17,12 +17,12 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 import MyOrders from './Pages/MyOrders/MyOrders';
-import AllOrder from './Pages/Admin/AllOrder/AllOrder';
-import AddNewService from './Pages/Admin/AddNewSevice/AddNewService';
+import AllManageOrders from './Pages/Admin/AllManageOrders/AllManageOrders';
+import AddNewService from './Pages/Admin/AddNewService/AddNewService';
 
-import UpdateService from './Pages/Admin/UpdadeService/UpdateService';
+import UpdateServices from './Pages/Admin/UpdadeService/UpdateServices';
 import LoginTogol from './Pages/Login/LoginTogol/LoginTogol';
-import Update from './Pages/Admin/UpdadeService/UpdateForEdit/Ubpdate';
+import UpdateForm from './Pages/Admin/UpdadeService/UpdateForm/UpdateFrom';
 import Footer from './Components/Footer/Footer'
 import NoteFound from './Pages/NoteFound/NoteFound';
 import Spinner from './Components/Hooks/Spinner';
@@ -55,17 +55,17 @@ function App() {
             <PrivateRoute exact path="/myOrders">
               <MyOrders></MyOrders>
             </PrivateRoute>
-            <PrivateRoute exact path="/AllOrder">
-              <AllOrder></AllOrder>
+            <PrivateRoute exact path="/AllManageOrders">
+              <AllManageOrders></AllManageOrders>
             </PrivateRoute>
             <PrivateRoute exact path="/AddNewService">
               <AddNewService></AddNewService>
             </PrivateRoute>
             <PrivateRoute exact path='/testUseParams/:id'>
-              <Update></Update>
+              <UpdateForm></UpdateForm>
             </PrivateRoute>
             <PrivateRoute path="/update">
-              <UpdateService></UpdateService>
+              <UpdateServices></UpdateServices>
             </PrivateRoute>
             <Route path='/login'>
               <LoginTogol></LoginTogol>

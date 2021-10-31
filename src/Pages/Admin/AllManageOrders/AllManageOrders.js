@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import AllOrderItem from './AllOrderItem';
+import AllManageOrder from './AllManageOrder';
 import axios from 'axios';
 import './ManageOrder.css';
-const AllOrder = () => {
+const AllManageOrders = () => {
     const [allOrdersItems, setOrdersItems] = useState([])
 
 
@@ -68,7 +68,7 @@ const AllOrder = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                allOrdersItems?.map(allOrderItem => <AllOrderItem handleApproved={handleApproved} handleDelete={handleDelete} key={allOrderItem?._id} allOrderItem={allOrderItem}></AllOrderItem>)
+                                                allOrdersItems?.map(allOrderItem => <AllManageOrder handleApproved={handleApproved} handleDelete={handleDelete} key={allOrderItem?._id} allOrderItem={allOrderItem}></AllManageOrder>)
                                             }
                                         </tbody>
                                     </table>
@@ -82,4 +82,4 @@ const AllOrder = () => {
     );
 };
 
-export default AllOrder;
+export default AllManageOrders;

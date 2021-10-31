@@ -84,7 +84,7 @@ const Navigation = () => {
                                 <NavLink
                                     style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
                                     activeStyle={{ color: 'red', fontWeight: 'bold' }}
-                                    to='/AllOrder'><MenuItem onClick={handleClose}>Manage all Order
+                                    to='/AllManageOrders'><MenuItem onClick={handleClose}>Manage all Order
                                     </MenuItem>
                                 </NavLink>
                                 <NavLink

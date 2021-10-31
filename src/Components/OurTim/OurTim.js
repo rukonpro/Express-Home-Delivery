@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 const OurTim = () => {
     AOS.init();
     return (
-        <div className='container px-0 py-11'>
+        <div className='container px-3 py-11'>
             <hr />
 
             <h5 className='text-pink-600 font-serif'>Our Tim</h5>

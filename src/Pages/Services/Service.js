@@ -9,7 +9,7 @@ const Service = (props) => {
     return (
 
 
-        <Link to={`/placeOrder/${_id}`} className='text-decoration-none col-lg-3 col-md-6 col-sm-12'>
+        <Link to={`/placeOrder/${_id}`} className='text-decoration-none col-lg-4 col-md-6 col-sm-12'>
             <Card >
                 <CardActionArea>
                     <CardMedia className='overflow-hidden'

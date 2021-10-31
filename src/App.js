@@ -25,6 +25,7 @@ import LoginTogol from './Pages/Login/LoginTogol/LoginTogol';
 import Update from './Pages/Admin/UpdadeService/UpdateForEdit/Ubpdate';
 import Footer from './Components/Footer/Footer'
 import NoteFound from './Pages/NoteFound/NoteFound';
+import Spinner from './Components/Hooks/Spinner';
 
 
 
@@ -36,6 +37,8 @@ function App() {
       <AuthProvider>
         <Router>
           <Navigation></Navigation>
+          <Spinner />
+
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -72,6 +75,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
+        <Spinner />
         <Footer></Footer>
       </AuthProvider>
 

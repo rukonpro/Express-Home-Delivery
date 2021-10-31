@@ -4,15 +4,19 @@ import Header from '../../Components/Header/Header';
 import Services from '../Services/Services';
 import Spinner from '../../Components/Hooks/Spinner'
 import OurTim from '../../Components/OurTim/OurTim';
+import CustomizedDialogs from '../../Components/Popap/Popap';
+
 
 const Home = () => {
     return (
         <div className='overflow-hidden'>
             <Spinner />
+            <CustomizedDialogs />
             <Header></Header>
             <Services></Services>
             <DeliverMan></DeliverMan>
             <OurTim></OurTim>
+
 
 
         </div>

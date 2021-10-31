@@ -1,10 +1,24 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { HashLink, NavHashLink } from 'react-router-hash-link';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import useAuth from '../Hooks/useAuth';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
     const { user, logOut } = useAuth();
+
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
     return (
         <div>
             <Navbar className=' bg-gray-700' expand="lg">
@@ -23,15 +37,48 @@ const Navigation = () => {
                             <Nav.Link as={NavHashLink} style={{ fontWeight: 'bold', color: 'yellow' }} activeStyle={{ color: 'red', fontWeight: 'bold' }} to="/myOrders">My Orders</Nav.Link>
 
 
-                            <NavDropdown className=' text-warning fw-bold' title="Admin" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={NavHashLink} activeStyle={{ color: 'white', fontWeight: 'bold' }} to="/AllOrder">Manage all Order</NavDropdown.Item>
 
+                            <Button
+                                id="demo-positioned-button"
+                                aria-controls="demo-positioned-menu"
+                                aria-haspopup="true"
+                                aria-expanded={open ? 'true' : undefined}
+                                onClick={handleClick}
 
-                                <NavDropdown.Item as={NavHashLink} activeStyle={{ color: 'white', fontWeight: 'bold' }} to="/update">Update service</NavDropdown.Item>
+                            >
+                                Admin
+                            </Button>
+                            <Menu
+                                id="demo-positioned-menu"
+                                aria-labelledby="demo-positioned-button"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                            >
+                                <NavLink
+                                    style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
+                                    activeStyle={{ color: 'red', fontWeight: 'bold' }}
 
-                                <NavDropdown.Item as={NavHashLink} activeStyle={{ color: 'white', fontWeight: 'bold' }} to="/AddNewService">Add a new service</NavDropdown.Item>
+                                    to='/AllOrder'><MenuItem onClick={handleClose}>Manage all Order</MenuItem></NavLink>
+                                <NavLink
+                                    style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
+                                    activeStyle={{ color: 'red', fontWeight: 'bold' }}
 
-                            </NavDropdown>
+                                    to="/update"><MenuItem onClick={handleClose}>Update service</MenuItem></NavLink>
+                                <NavLink
+                                    style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
+                                    activeStyle={{ color: 'red', fontWeight: 'bold' }}
+
+                                    to="/AddNewService"><MenuItem onClick={handleClose}>Add a new service</MenuItem></NavLink>
+                            </Menu>
 
 
                             {

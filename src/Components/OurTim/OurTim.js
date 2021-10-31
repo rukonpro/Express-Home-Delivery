@@ -17,7 +17,7 @@ const OurTim = () => {
                         </div>
                         <div>
                             <h1 className='text-indigo-800'>Robb Haagelan</h1>
-                            <h5 className='text-pink-700'>CEO</h5>
+                            <h5 className='text-pink-700'>CEO </h5>
                         </div>
                         <div className='card-footer'>
                             <span><i class="fab fa-facebook text-2xl  text-blue-500 mx-2"></i></span>

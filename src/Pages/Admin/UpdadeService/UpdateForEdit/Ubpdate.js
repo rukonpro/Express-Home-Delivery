@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import './Update.css'
+import { Link } from 'react-router-dom';
 
 const Update = () => {
     const { id } = useParams();
@@ -54,6 +55,9 @@ const Update = () => {
 
 
 
+            </div>
+            <div className='text-center pt-4'>
+                <Link to="/update" className='btn btn-success '>Go to Back</Link>
             </div>
         </div>
     );

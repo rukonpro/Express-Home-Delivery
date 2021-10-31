@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+// import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
@@ -9,35 +9,21 @@ const Service = (props) => {
     return (
 
 
-        <Link to={`/placeOrder/${_id}`} className='text-decoration-none col-lg-3 col-md-6 col-sm-12'>
-            <Card >
-                <CardActionArea>
-                    <CardMedia className='overflow-hidden'
-                        component="img"
-                        height="140"
-                        image={img}
-                        alt="green iguana"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            {description.slice(0, 100)}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            ${price}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions className=' bg-yellow-400'>
+        <Link to={`/placeOrder/${_id}`} className='text-decoration-none col'>
 
-                    <Button size="large" color="primary">
-                        Order
-                    </Button>
-
-                </CardActions>
-            </Card>
+            <div class=" ">
+                <div class="card h-100">
+                    <img src={img} class="card-img-top" alt="food" />
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">{title.slice(0, 25)}</h5>
+                        <p class="card-text">{description.slice(0, 100)}...</p>
+                    </div>
+                    <div class="card-footer flex justify-between">
+                        <span><small class="text-muted btn btn-warning inline">Order</small></span>
+                        <span><h4 class="text-muted inline  text-danger">${price}</h4></span>
+                    </div>
+                </div>
+            </div>
         </Link>
 
 

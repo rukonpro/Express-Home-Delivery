@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 const AddNewService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -25,7 +26,7 @@ const AddNewService = () => {
                     <img src="https://i.ibb.co/Gdkp0HJ/slider-courier-mask-2.png" alt="" />
                 </div>
                 <div className='container-fluid px-3 col-lg-4'>
-                    <div className=' col-6 rounded-pill bg-green-100 mb-4 container'>
+                    <div className=' col-6 rounded-pill bg-blue-900 mb-4 container'>
                         <img src="https://i.ibb.co/9h97tcf/logo-2x.png" alt="" />
                     </div>
                     <form onSubmit={handleSubmit(handleAddedNewService)}>
@@ -51,7 +52,9 @@ const AddNewService = () => {
                         <input className="form-control rounded-pill btn-warning " value='Update' type="submit" />
                     </form>
 
-
+                    <div className='pt-4'>
+                        <Link to='/services' className='btn btn-success'>Go to all services</Link>
+                    </div>
                 </div>
 
 

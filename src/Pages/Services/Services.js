@@ -26,12 +26,24 @@ const Services = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='row g-3'>
+
+                    {/* ---------------------------------------------------------- */}
+
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
 
                         {
                             services.map(service => <Service key={service?._id} service={service}></Service>)
                         }
+
                     </div>
+
+
+
+                    {/* ----------------------------------------------------------------- */}
+
+
+
+
                 </div>
             </div>
         </div>

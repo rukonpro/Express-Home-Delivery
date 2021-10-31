@@ -12,37 +12,26 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider()
 
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      // console.log(user);
-      if (user) {
-
-        setUser(user)
-      } else {
-        setUser({})
-      }
-      setIsLoading(false)
-    })
-    return () => unsubscribe()
-  }, [auth])
 
 
+  // login google------------------------
   const signInWithGoogle = () => {
     return signInWithPopup(auth, googleProvider)
 
   }
 
+  // create account With google-----------
 
   const createAccountWithGoogle = (email, password) => {
-
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
-
+  //login email and password----------------
   const loginWithEmailAndPassword = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
   }
 
+  //update name---------------
 
   const updateName = (name) => {
     updateProfile(auth.currentUser, {
@@ -58,6 +47,8 @@ const useFirebase = () => {
     });
   }
 
+  //logout-----------------
+
   const logOut = () => {
     console.log("logouttttt");
     signOut(auth).then(() => {
@@ -66,6 +57,22 @@ const useFirebase = () => {
       // An error happened.
     });
   }
+
+  // on auth state change -----------------------------
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      // console.log(user);
+      if (user) {
+
+        setUser(user)
+      } else {
+        setUser({})
+      }
+      setIsLoading(false)
+    })
+    return () => unsubscribe()
+  }, [auth])
 
   return {
     user, setUser,

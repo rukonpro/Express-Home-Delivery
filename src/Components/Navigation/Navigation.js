@@ -21,9 +21,14 @@ const Navigation = () => {
     };
     return (
         <div>
-            <Navbar className=' bg-gray-700' expand="lg">
+            <Navbar className=' 
+            bg-gray-700' expand="lg">
+
                 <Container >
-                    <Navbar.Brand as={HashLink} to="/"><img className='' width='200px' src="https://i.ibb.co/9h97tcf/logo-2x.png" alt="" /></Navbar.Brand>
+                    <Navbar.Brand as={HashLink} to="/">
+                        <img width='200px' src="https://i.ibb.co/9h97tcf/logo-2x.png" alt="" />
+                    </Navbar.Brand>
+
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -31,10 +36,23 @@ const Navigation = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link as={NavHashLink} style={{ fontWeight: 'bold', color: 'yellow' }} activeStyle={{ color: 'red', fontWeight: 'bold' }} to="/home">Home</Nav.Link>
-                            <Nav.Link as={NavHashLink} style={{ fontWeight: 'bold', color: 'yellow' }} activeStyle={{ color: 'red', fontWeight: 'bold' }} to="/services">Services</Nav.Link>
+                            <Nav.Link as={NavHashLink}
+                                style={{ fontWeight: 'bold', color: 'yellow' }}
+                                activeStyle={{ color: 'red', fontWeight: 'bold' }}
+                                to="/home">Home
+                            </Nav.Link>
 
-                            <Nav.Link as={NavHashLink} style={{ fontWeight: 'bold', color: 'yellow' }} activeStyle={{ color: 'red', fontWeight: 'bold' }} to="/myOrders">My Orders</Nav.Link>
+                            <Nav.Link as={NavHashLink}
+                                style={{ fontWeight: 'bold', color: 'yellow' }}
+                                activeStyle={{ color: 'red', fontWeight: 'bold' }}
+                                to="/services">Services
+                            </Nav.Link>
+
+                            <Nav.Link as={NavHashLink}
+                                style={{ fontWeight: 'bold', color: 'yellow' }}
+                                activeStyle={{ color: 'red', fontWeight: 'bold' }}
+                                to="/myOrders">My Orders
+                            </Nav.Link>
 
 
 
@@ -66,17 +84,20 @@ const Navigation = () => {
                                 <NavLink
                                     style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
                                     activeStyle={{ color: 'red', fontWeight: 'bold' }}
-
-                                    to='/AllOrder'><MenuItem onClick={handleClose}>Manage all Order</MenuItem></NavLink>
+                                    to='/AllOrder'><MenuItem onClick={handleClose}>Manage all Order
+                                    </MenuItem>
+                                </NavLink>
                                 <NavLink
                                     style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
                                     activeStyle={{ color: 'red', fontWeight: 'bold' }}
 
-                                    to="/update"><MenuItem onClick={handleClose}>Update service</MenuItem></NavLink>
+                                    to="/update"><MenuItem onClick={handleClose}>Update service
+                                    </MenuItem>
+                                </NavLink>
+
                                 <NavLink
                                     style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
                                     activeStyle={{ color: 'red', fontWeight: 'bold' }}
-
                                     to="/AddNewService"><MenuItem onClick={handleClose}>Add a new service</MenuItem></NavLink>
                             </Menu>
 
@@ -84,20 +105,29 @@ const Navigation = () => {
                             {
                                 user.displayName || user.email ?
                                     <span>
-                                        <Nav.Link style={{ fontWeight: 'bold', color: 'yellow' }}  >{user.displayName}</Nav.Link>
-
-
+                                        <Nav.Link
+                                            style={{ fontWeight: 'bold', color: 'yellow' }}>
+                                            {user.displayName}
+                                        </Nav.Link>
                                     </span>
                                     :
 
-                                    <Nav.Link as={NavHashLink} style={{ fontWeight: 'bold', color: 'yellow' }} activeStyle={{ color: 'red', fontWeight: 'bold' }} to="/login">Login</Nav.Link>
+                                    <Nav.Link as={NavHashLink}
+                                        style={{ fontWeight: 'bold', color: 'yellow' }}
+                                        activeStyle={{ color: 'red', fontWeight: 'bold' }}
+                                        to="/login">Login
+                                    </Nav.Link>
 
 
 
                             }
 
                             {
-                                user.email && <Nav.Link onClick={logOut} style={{ fontWeight: 'bold', color: 'yellow' }}  >Logout</Nav.Link>
+                                user.email &&
+                                <Nav.Link
+                                    onClick={logOut}
+                                    style={{ fontWeight: 'bold', color: 'yellow' }}  >Logout
+                                </Nav.Link>
                             }
 
                         </Nav>

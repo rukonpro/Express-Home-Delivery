@@ -49,7 +49,7 @@ const AddNewService = () => {
                             <option value="yellow">yellow</option>
                         </select><br />
 
-                        <input className="form-control rounded-pill btn-warning " value='Update' type="submit" />
+                        <input className="form-control rounded-pill btn-warning " value='Upload' type="submit" />
                     </form>
 
                     <div className='pt-4'>

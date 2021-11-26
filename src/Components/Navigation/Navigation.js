@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { HashLink, NavHashLink } from 'react-router-hash-link';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import useAuth from '../Hooks/useAuth';
@@ -56,16 +55,19 @@ const Navigation = () => {
 
 
 
-                            <Button
+                            <Nav.Link
+                                style={{ fontWeight: 'bold', color: 'yellow' }}
                                 id="demo-positioned-button"
                                 aria-controls="demo-positioned-menu"
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}
 
+
+
                             >
                                 Admin
-                            </Button>
+                            </Nav.Link>
                             <Menu
                                 id="demo-positioned-menu"
                                 aria-labelledby="demo-positioned-button"
@@ -82,7 +84,7 @@ const Navigation = () => {
                                 }}
                             >
                                 <NavLink
-                                    style={{ fontWeight: 'bold', color: 'blue', textDecoration: "none" }}
+                                    style={{ fontWeight: 'bold', textDecoration: "none" }}
                                     activeStyle={{ color: 'red', fontWeight: 'bold' }}
                                     to='/AllManageOrders'><MenuItem onClick={handleClose}>Manage all Order
                                     </MenuItem>

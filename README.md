@@ -2,14 +2,11 @@
 
 #Live site(https://express-home-delivery-ebb81.firebaseapp.com/).
 
-⇥ Users can order food with this web site.
+★ Technology: React, React-router, React-hook-form, Node.js, Express.js, Firebase,
+Bootstrap, Tailwind CSS, MaterialUI, MongoDB.
 
-⇥ Users can login with Google or password.
+➢ Users can Order services, Order review, and remove orders.
 
-⇥ The user must be a user of this web site to get special benefits.
+➢ Admin can manage all orders, Add a Service, Update Service.
 
-⇥ After ordering the food, the admin will be able to delete the ordered food before approving it.
-
-⇥ After the user orders food, it will be pending until the admin approves it.
-
-⇥ Admin can post new service, delete again.
+➢ User authentication firebase login with google or Create account and login.

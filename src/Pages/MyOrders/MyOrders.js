@@ -16,13 +16,9 @@ const MyOrders = () => {
     // console.log(myOrderService)
 
     const handleDelete = (id) => {
-
-
         window.confirm("Are you sure you wish to delete this item?") &&
             axios.delete(`https://arcane-sierra-37156.herokuapp.com/deleteItem/${id}`)
-
                 .then(res => res.data.deletedCount &&
-
                     fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
                         .then(res => res?.json())
                         .then(data => setMyOrderService(data))

@@ -65,11 +65,11 @@ const PlaceOrder = () => {
                         <h1 className='text-yellow-400'>{title}</h1>
                         <p>{description}</p>
                         <h4>${price}</h4>
-                        <button onClick={handleOrder} className='btn btn-warning text-white mr-2'>Add to cart</button>
+                        <button onClick={handleOrder} className='btn btn-warning mt-2 text-white mr-2'>Add to cart</button>
 
-                        <Link to='/myOrders' className='btn btn-info text-danger mr-2'>See your order</Link>
+                        <Link to='/myOrders' className='btn btn-info mt-2 text-danger mr-2'>See your order</Link>
 
-                        <Link to='/services'><button className='btn  btn-primary'>Back to all services</button></Link>
+                        <Link to='/services'><button className='btn mt-2 btn-primary'>Back to all services</button></Link>
 
 
                         <div className='col-sm-12 col-md-6 col-lg-6 py-5'>

@@ -12,7 +12,7 @@ const LoginToggle = () => {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     AOS.init();
     return (
-        <div className='container p-3'>
+        <div className='bg-gray-400 p-3'>
 
             <h1 className=' fw-bolder text-pink-600'>{toggle ? 'Welcome to Register page' : 'Welcome to Login Page'}</h1>
 

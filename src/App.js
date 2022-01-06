@@ -75,7 +75,6 @@ function App() {
             </Route>
           </Switch>
         </Router>
-        <Spinner />
         <Footer></Footer>
       </AuthProvider>
 

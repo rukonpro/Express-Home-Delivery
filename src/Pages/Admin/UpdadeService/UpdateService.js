@@ -8,7 +8,7 @@ const UpdateService = (props) => {
     return (
 
         // <div className='col-lg-3 col-md-6 col-sm-12'>
-        <div class="col">
+        <div class="col ">
             <div class="card h-100">
                 <img src={img} class="card-img-top" alt="food" />
                 <div class="card-body">

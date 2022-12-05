@@ -11,7 +11,7 @@ const Update = () => {
     const { register, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        fetch(`https://arcane-sierra-37156.herokuapp.com/singleServices/${id}`)
+        fetch(`https://express-home-delivery-server.onrender.com/singleServices/${id}`)
             .then(res => res.json())
             .then(data => setSingleService(data))
     }, [id, setSingleService])
@@ -20,7 +20,7 @@ const Update = () => {
     const { title, img, description, price } = singleService;
     // const id=_id;
     const update = (data) => {
-        axios.put(`https://arcane-sierra-37156.herokuapp.com/updateService/${id}`, data)
+        axios.put(`https://express-home-delivery-server.onrender.com/updateService/${id}`, data)
             .then(res => {
                 if (res?.data?.modifiedCount) {
                     alert('Update SuccessFully 🤣')

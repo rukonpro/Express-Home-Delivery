@@ -11,7 +11,7 @@ const PlaceOrder = () => {
     const { user } = useAuth()
 
     useEffect(() => {
-        fetch(`https://arcane-sierra-37156.herokuapp.com/singleServices/${id}`)
+        fetch(`https://express-home-delivery-server.onrender.com/singleServices/${id}`)
             .then(res => res.json())
             .then(data => setSingleService(data))
     }, [id, setSingleService])
@@ -22,7 +22,7 @@ const PlaceOrder = () => {
 
 
     useEffect(() => {
-        fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
+        fetch(`https://express-home-delivery-server.onrender.com/myOrderServices/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyOrderService(data))
     }, [user.email, setMyOrderService])
@@ -41,11 +41,11 @@ const PlaceOrder = () => {
 
 
     const handleOrder = () => {
-        axios.post('https://arcane-sierra-37156.herokuapp.com/addToOrders', OrderData)
+        axios.post('https://express-home-delivery-server.onrender.com/addToOrders', OrderData)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Add to cart successfully')
-                    fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
+                    fetch(`https://express-home-delivery-server.onrender.com/myOrderServices/${user?.email}`)
                         .then(res => res.json())
                         .then(data => setMyOrderService(data))
                 }

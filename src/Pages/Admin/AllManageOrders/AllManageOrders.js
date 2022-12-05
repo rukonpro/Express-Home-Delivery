@@ -7,7 +7,7 @@ const AllManageOrders = () => {
 
 
     useEffect(() => {
-        fetch('https://arcane-sierra-37156.herokuapp.com/allOrderServices')
+        fetch('https://express-home-delivery-server.onrender.com/allOrderServices')
             .then(res => res.json())
             .then(data => setOrdersItems(data))
     }, [])
@@ -17,12 +17,12 @@ const AllManageOrders = () => {
 
         data.pending = 'Approved';
         data.colors = 'btn-success';
-        axios.put(`https://arcane-sierra-37156.herokuapp.com/updateApproved/${id}`, data)
+        axios.put(`https://express-home-delivery-server.onrender.com/updateApproved/${id}`, data)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     alert('Approved Successfully')
 
-                    fetch('https://arcane-sierra-37156.herokuapp.com/allOrderServices')
+                    fetch('https://express-home-delivery-server.onrender.com/allOrderServices')
                         .then(res => res.json())
                         .then(data => setOrdersItems(data))
                 }
@@ -35,9 +35,9 @@ const AllManageOrders = () => {
     const handleDelete = (id) => {
 
         window.confirm("Are you sure you wish to delete this item?") &&
-            axios.delete(`https://arcane-sierra-37156.herokuapp.com/deleteItem/${id}`)
+            axios.delete(`https://express-home-delivery-server.onrender.com/deleteItem/${id}`)
                 .then(res => res?.data?.deletedCount &&
-                    fetch('https://arcane-sierra-37156.herokuapp.com/allOrderServices')
+                    fetch('https://express-home-delivery-server.onrender.com/allOrderServices')
                         .then(res => res.json())
                         .then(data => setOrdersItems(data)))
     }

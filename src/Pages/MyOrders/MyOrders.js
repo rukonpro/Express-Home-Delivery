@@ -9,7 +9,7 @@ const MyOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
+        fetch(`https://express-home-delivery-server.onrender.com/myOrderServices/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyOrderService(data))
     }, [user.email, setMyOrderService])
@@ -17,9 +17,9 @@ const MyOrders = () => {
 
     const handleDelete = (id) => {
         window.confirm("Are you sure you wish to delete this item?") &&
-            axios.delete(`https://arcane-sierra-37156.herokuapp.com/deleteItem/${id}`)
+            axios.delete(`https://express-home-delivery-server.onrender.com/deleteItem/${id}`)
                 .then(res => res.data.deletedCount &&
-                    fetch(`https://arcane-sierra-37156.herokuapp.com/myOrderServices/${user?.email}`)
+                    fetch(`https://express-home-delivery-server.onrender.com/myOrderServices/${user?.email}`)
                         .then(res => res?.json())
                         .then(data => setMyOrderService(data))
                 )

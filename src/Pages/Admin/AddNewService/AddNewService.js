@@ -9,7 +9,7 @@ const AddNewService = () => {
 
     const handleAddedNewService = (data) => {
         // console.log(data)
-        axios.post('https://arcane-sierra-37156.herokuapp.com/postServices', data)
+        axios.post('https://express-home-delivery-server.onrender.com/postServices', data)
             .then(res => {
                 if (res?.data?.insertedId) {
                     alert('Added SuccessFully')

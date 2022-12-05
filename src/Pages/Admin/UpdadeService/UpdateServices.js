@@ -6,17 +6,17 @@ const UpdateServices = () => {
 
     const [servicesUpdate, setServicesUpdate] = useState([]) || '';
     useEffect(() => {
-        fetch('https://arcane-sierra-37156.herokuapp.com/allServices')
+        fetch('https://express-home-delivery-server.onrender.com/allServices')
             .then(res => res.json())
             .then(data => setServicesUpdate(data))
     }, [setServicesUpdate])
 
     const handleDelete = (id) => {
         window.confirm("Are you sure you wish to delete this item?") &&
-            axios.delete(`https://arcane-sierra-37156.herokuapp.com/updateDelete/${id}`)
+            axios.delete(`https://express-home-delivery-server.onrender.com/updateDelete/${id}`)
                 .then(res => {
                     if (res.data.deletedCount) {
-                        fetch('https://arcane-sierra-37156.herokuapp.com/allServices')
+                        fetch('https://express-home-delivery-server.onrender.com/allServices')
                             .then(res => res.json())
                             .then(data => setServicesUpdate(data))
                     }
